@@ -12,14 +12,15 @@
 <body>
 <header>
     <nav class="flex flex-row justify-between p-2 bg-egg container mx-auto">
-        <div>
+        <div class="flex flex-row gap-10">
             <a href="/">
                 <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Cash Cow Logo" class="w-16 drop-shadow">
             </a>
-        </div>
-        <div class="flex flex-row gap-6 my-auto">
-            <x-nav-link href="#" :active="request()->is('/')">Home</x-nav-link>
-            <x-nav-link href="#" :active="request()->is('/history')">History</x-nav-link>
+
+            <div class="flex flex-row my-auto gap-6">
+                <x-nav-link href="#" :active="request()->is('/')">Home</x-nav-link>
+                <x-nav-link href="#" :active="request()->is('/history')">History</x-nav-link>
+            </div>
         </div>
         <div class="flex flex-row gap-6 my-auto">
             <x-nav-link href="#" :button="true">Log In</x-nav-link>
