@@ -12,19 +12,27 @@
 <body>
 <header>
     <nav class="flex flex-row justify-between p-2 bg-white container mx-auto">
-        <div class="flex flex-row gap-10">
-            <a href="/">
-                <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Cash Cow Logo" class="w-16 drop-shadow">
-            </a>
+        <div class="flex flex-row gap-2 md:gap-10">
+            @auth
+                <a href='/dashboard'>
+                    <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Cash Cow Logo"
+                         class="w-16 drop-shadow">
+                </a>
+            @endauth
+            @guest
+                <a href='/'>
+                    <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Cash Cow Logo"
+                         class="w-16 drop-shadow">
+                </a>
+            @endguest
 
             @auth
-                <div class="flex flex-row my-auto gap-6">
-                    <x-nav-link href="#" :active="request()->is('/')">Home</x-nav-link>
+                <div class="flex flex-row my-auto gap-2 md:gap-6">
                     <x-nav-link href="#" :active="request()->is('/history')">History</x-nav-link>
                 </div>
             @endauth
         </div>
-        <div class="flex flex-row gap-6 my-auto">
+        <div class="flex flex-row gap-2 md:gap-6 my-auto">
             @guest
                 <x-nav-link href="/login" :button="true">Log In</x-nav-link>
                 <x-nav-link href="/register" :button="true">Register</x-nav-link>
