@@ -23,8 +23,8 @@
             </div>
         </div>
         <div class="flex flex-row gap-6 my-auto">
-            <x-nav-link href="#" :button="true">Log In</x-nav-link>
-            <x-nav-link href="#" :button="true">Register</x-nav-link>
+            <x-nav-link href="/login" :button="true">Log In</x-nav-link>
+            <x-nav-link href="/register" :button="true">Register</x-nav-link>
         </div>
     </nav>
 </header>
