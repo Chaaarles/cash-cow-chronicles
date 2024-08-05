@@ -1,3 +1,3 @@
-<x-layout>
-    Hello
-</x-layout>
+<x-app-layout>
+    Welcome to Cash Cow
+</x-app-layout>
