@@ -17,23 +17,28 @@
                 <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Cash Cow Logo" class="w-16 drop-shadow">
             </a>
 
-            <div class="flex flex-row my-auto gap-6">
-                <x-nav-link href="#" :active="request()->is('/')">Home</x-nav-link>
-                <x-nav-link href="#" :active="request()->is('/history')">History</x-nav-link>
-            </div>
+            @auth
+                <div class="flex flex-row my-auto gap-6">
+                    <x-nav-link href="#" :active="request()->is('/')">Home</x-nav-link>
+                    <x-nav-link href="#" :active="request()->is('/history')">History</x-nav-link>
+                </div>
+            @endauth
         </div>
         <div class="flex flex-row gap-6 my-auto">
             @guest
-            <x-nav-link href="/login" :button="true">Log In</x-nav-link>
-            <x-nav-link href="/register" :button="true">Register</x-nav-link>
+                <x-nav-link href="/login" :button="true">Log In</x-nav-link>
+                <x-nav-link href="/register" :button="true">Register</x-nav-link>
             @endguest
             @auth
                 <x-nav-link href="/profile" :button="true">Profile</x-nav-link>
                 <form action="/logout" method="post">
                     @csrf
-                    <button class="border-b-2 hover:border-eggplant-900 border-b-transparent transition duration-200 font-medium bg-eggplant-950 hover:bg-eggplant-800 text-white px-3 py-1 rounded-lg border-none">Log Out</button>
+                    <button
+                        class="border-b-2 hover:border-eggplant-900 border-b-transparent transition duration-200 font-medium bg-eggplant-950 hover:bg-eggplant-800 text-white px-3 py-1 rounded-lg border-none">
+                        Log Out
+                    </button>
                 </form>
-                @endauth
+            @endauth
         </div>
     </nav>
 </header>
